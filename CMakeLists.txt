@@ -18,6 +18,8 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 # Note that ament_target_dependencies() in algo cannot export Boost::thread to downstream. As a result, qt_example_node, as a downstream of libalgo.so, needs to explicitly find_package() for Boost again so that qt_example_node is able to link to Boost::thread.
 find_package(Boost 1.71.0 REQUIRED COMPONENTS thread)
@@ -43,7 +45,7 @@ add_executable(${PROJECT_NAME}
         ${PRO_FORM_DIR}
 )
 # Note that ament_target_dependencies() in algo cannot export Boost::thread to downstream. As a result, qt_example_node, as a downstream of libalgo.so, needs to explicitly ament_target_dependencies() for Boost again so that qt_example_node is able to link to Boost::thread.
-ament_target_dependencies(${PROJECT_NAME} rclcpp  Boost)
+ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs Boost)
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Widgets

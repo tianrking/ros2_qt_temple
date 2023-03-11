@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/icon">
         <file>images/ros-icon.png</file>
-        <file>images/foxy.jpg</file>
+        <file>images/humble.jpg</file>
     </qresource>
 </RCC>
